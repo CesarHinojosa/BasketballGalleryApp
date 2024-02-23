@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    >
+    <item
+        android:id="@+id/Micheal_Jordan"
+        android:orderInCategory="100"
+        android:title="Michael Jordan"
+        app:showAsAction="never"/>
+    <item
+        android:id="@+id/Kobe_Bryant"
+        android:orderInCategory="100"
+        android:title="Kobe Bryant"
+        app:showAsAction="never"/>
+    <item
+        android:id="@+id/Lebron_James"
+        android:orderInCategory="100"
+        android:title="Lebron James"
+        app:showAsAction="never"/>
+
+</menu>
