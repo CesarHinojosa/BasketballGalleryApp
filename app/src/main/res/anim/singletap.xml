@@ -1,26 +1,16 @@
 <set xmlns:android="http://schemas.android.com/apk/res/android">
     <!-- Fade in -->
     <alpha
-
         android:fromAlpha="0.0"
         android:toAlpha="1.0"
         android:duration="1000"
-        android:interpolator="@android:anim/accelerate_interpolator"
-        />
+        android:interpolator="@android:anim/accelerate_interpolator"/>
 
-
-    <!-- Wait for a moment -->
+    <!-- Stay visible -->
     <alpha
         android:fromAlpha="1.0"
         android:toAlpha="1.0"
         android:duration="2000"
-        android:interpolator="@android:anim/accelerate_interpolator"/>
+        android:startOffset="1000"></alpha> <!-- Start after the fade in -->
 
-    <!-- Fade out -->
-    <alpha
-        android:fromAlpha="1.0"
-        android:toAlpha="0.0"
-        android:duration="1000"
-        android:startOffset="2000"
-        android:interpolator="@android:anim/accelerate_interpolator"/>
 </set>

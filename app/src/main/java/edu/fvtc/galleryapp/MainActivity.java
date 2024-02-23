@@ -3,6 +3,7 @@ package edu.fvtc.galleryapp;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.res.ResourcesCompat;
 
 import android.graphics.Typeface;
 import android.os.Bundle;
@@ -101,10 +102,15 @@ public class MainActivity extends AppCompatActivity implements GestureDetector.O
                 message = "Go to back";
                 imgCard.setVisibility(View.VISIBLE);
                 tvCard.setText(player[cardNo].getDescription());
-                Typeface desiredFont = Typeface.create("YourFontName", Typeface.NORMAL);
+
                 Animation move = AnimationUtils.loadAnimation(this, R.anim.singletap);
                 move.setAnimationListener(new AnimationListener());
                 tvCard.startAnimation(move);
+
+                TextView textView = findViewById(R.id.tvInfo);
+
+                textView.setText(Typeface.BOLD_ITALIC);
+
 
 
                 Log.d(TAG, "onFling: SingleTap");
@@ -114,9 +120,12 @@ public class MainActivity extends AppCompatActivity implements GestureDetector.O
                 message = "Go to front";
                 imgCard.setVisibility(View.VISIBLE);
                 tvCard.setText(player[cardNo].getName());
+
+                TextView textView = findViewById(R.id.tvInfo);
+                textView.setTypeface(Typeface.DEFAULT_BOLD);
             }
 
-            isFront = !isFront;
+
             Log.d(TAG, "onSingleTapUp: " + message);
         }
         catch(Exception e1)
@@ -126,6 +135,8 @@ public class MainActivity extends AppCompatActivity implements GestureDetector.O
 
         return true;
     }
+
+
 
     @Override
     public boolean onScroll(@Nullable MotionEvent e1, @NonNull MotionEvent e2, float distanceX, float distanceY) {
@@ -182,6 +193,16 @@ public class MainActivity extends AppCompatActivity implements GestureDetector.O
         return true;
     }
 
+    private void fadeInStay(String newText) {
+        // Display the new text
+        tvCard.setVisibility(View.VISIBLE);
+        tvCard.setText(newText);
+
+        // Fade in animation
+        Animation fadeInStay = AnimationUtils.loadAnimation(this, R.anim.fadeinstay);
+        tvCard.clearAnimation(); // Clear any existing animations
+        tvCard.startAnimation(fadeInStay);
+    }
 
 
     private class AnimationListener implements Animation.AnimationListener{
